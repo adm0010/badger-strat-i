@@ -7,8 +7,9 @@ import "deps/@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.s
 import "deps/@openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol";
 import "deps/@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol";
 import "deps/@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC20Upgradeable.sol";
-import "interfaces/aave/IUniswapRouterV2.sol";
-import "interfaces/badger/IBadgerGeyser.sol";
+
+import "AAVE-interfaces/ILendingPool.sol";
+
 
 import "interfaces/sushi/ISushiChef.sol";
 import "interfaces/sushi/IxSushi.sol";
