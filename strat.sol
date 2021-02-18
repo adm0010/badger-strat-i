@@ -10,6 +10,11 @@ import "deps/@openzeppelin/contracts-upgradeable/token/ERC20/SafeERC20Upgradeabl
 
 import "AAVE-interfaces/ILendingPool.sol";
 
+/* Strategy
+    A "meta-vault" strategy.
+    Swap wETH for USDT, staked in CurveDAO 
+*/
+
 
 import "interfaces/sushi/ISushiChef.sol";
 import "interfaces/sushi/IxSushi.sol";
