@@ -139,5 +139,21 @@ contract StrategyII is BaseStrategy {
         picklePerformanceFeeGovernance = _picklePerformanceFeeGovernance;
     }
 
-    
+    /// @notice Specify tokens used in yield process, should not be available to withdraw via withdrawOther()
+    function _onlyNotProtectedTokens(address _asset) internal virtual;
+
+ /// @notice Deposit any want in the strategy into the mechanics
+    /// @dev want -> pickleJar, pWant -> pWantFarm (handled in postDeposit hook)
+    function _deposit(uint256 _want) internal override {
+        if (_want > 0) {
+            IPickleJar(pickleJar).deposit(_want);
+        }
+    }
+
+    function _postDeposit() internal override {
+        uint256 _jar = IERC20Upgradeable(pickleJar).balanceOf(address(this));
+        if (_jar > 0) {
+            IPickleChef(pickleChef).deposit(pid, _jar);
+        }
+    }
 }
